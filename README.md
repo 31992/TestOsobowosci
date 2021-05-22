@@ -1,11 +1,25 @@
-# Sample Snack app
+# Aplikacja Quiz Osobowości
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+**Na ten moment aplikacja posiada 3 funkcjonalne ekrany:**
+<br>
+<br>
+<br>
+Ekran główny:
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+<p align="center">
+  <img width="323" height="668" src="https://user-images.githubusercontent.com/72864319/119230279-cba48500-bb1b-11eb-96f7-0763bc5dd9d2.png">
+</p>
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+<br>
+<br>
+Ekran quizu:
+<p align="center">
+  <img width="323" height="664" src="https://user-images.githubusercontent.com/72864319/119230584-2ee2e700-bb1d-11eb-9745-86d66b8682b0.png">
+</p>
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+<br>
+<br>
+Ekran wyników:
+<p align="center">
+  <img width="324" height="665" src="https://user-images.githubusercontent.com/72864319/119230625-618cdf80-bb1d-11eb-9946-8f8b13ea4132.png">
+</p>
