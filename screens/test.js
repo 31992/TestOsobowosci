@@ -317,7 +317,7 @@ export default function test({ route, navigation }){
       "duration": 90
     },
     {
-      "question": "Jesteś przede wyszystkim:",
+      "question": "Jesteś przede wszystkim:",
       "answers": [
         {
           "content": "Towarzyski",
@@ -517,7 +517,7 @@ return(
           </TouchableOpacity>
           <TouchableOpacity style={styles.button}
                             onPress={()=> pressHandlerResults() }>
-              <Text style={styles.container2}>Globalne Rezultaty</Text>
+              <Text style={styles.container2}>Wyniki</Text>
           </TouchableOpacity>
           </View>
           </>
@@ -535,7 +535,7 @@ return(
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}
                               onPress={()=> save(), ()=> pressHandlerResults() }>
-                <Text style={styles.container2}>Globalne Rezultaty</Text>
+                <Text style={styles.container2}>Wyniki</Text>
             </TouchableOpacity>
       </View>
       </>)
