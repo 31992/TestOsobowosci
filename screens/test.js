@@ -517,7 +517,7 @@ export default function test({ route, navigation }){
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.button}
                                     onPress={()=> pressHandlerResults() }>
-                    <Text style={styles.container2}>Sprawdź wykres kołowy</Text>
+                    <Text style={styles.container2}>Globalne rezultaty</Text>
                   </TouchableOpacity>
                 </View>
               </>
@@ -527,7 +527,7 @@ export default function test({ route, navigation }){
               <Text style={styles.quest}>{test[currentQuestion].question}</Text>
               <View>
                 {_.shuffle(test[currentQuestion].answers).map((answers) => <TouchableOpacity
-                    style={styles.answers} onPress={() => handleAnswersClick(answers.isCorrect) }><Text style={styles.text}>       {answers.content}</Text></TouchableOpacity>)}
+                    style={styles.answers} onPress={() => handleAnswersClick(answers.isCorrect) }><Text style={styles.text}>{answers.content}</Text></TouchableOpacity>)}
               </View>
               <TouchableOpacity style={styles.button}
                                 onPress={()=> save(), ()=> pressHandlerHome() }>
@@ -535,7 +535,7 @@ export default function test({ route, navigation }){
               </TouchableOpacity>
               <TouchableOpacity style={styles.button}
                                 onPress={()=> save(), ()=> pressHandlerResults() }>
-                <Text style={styles.container2}>Sprawdź wykres kołowy</Text>
+                <Text style={styles.container2}>Globalne rezultaty</Text>
               </TouchableOpacity>
             </View>
           </>)
