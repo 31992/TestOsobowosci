@@ -17,8 +17,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function test({ route, navigation }){
 
-    const pressHandlerHome = async() => {
-      try{
+  const pressHandlerHome = async() => {
+    try{
 
       let sa = await AsyncStorage.getItem("Sangwinik");
       let ch = await AsyncStorage.getItem("Choleryk");
@@ -26,29 +26,29 @@ export default function test({ route, navigation }){
       let fl = await AsyncStorage.getItem("Flegmatyk");
 
       if(sa !== null){
-          await AsyncStorage.setItem("Sangwinik", (Number(sa)+scoreSangwinik));
+        await AsyncStorage.setItem("Sangwinik", (Number(sa)+scoreSangwinik));
       }else{
-          await AsyncStorage.setItem("Sangwinik", scoreSangwinik);
+        await AsyncStorage.setItem("Sangwinik", scoreSangwinik);
       }
       if(ch !== null){
-          await AsyncStorage.setItem("Choleryk", (Number(ch) + scoreCholeryk));
+        await AsyncStorage.setItem("Choleryk", (Number(ch) + scoreCholeryk));
       }else{
-          await AsyncStorage.setItem("Choleryk", scoreCholeryk);
+        await AsyncStorage.setItem("Choleryk", scoreCholeryk);
       }
       if(me !== null){
-          await AsyncStorage.setItem("Melancholik", (Number(me) + scoreMelancholik));
+        await AsyncStorage.setItem("Melancholik", (Number(me) + scoreMelancholik));
       }else{
-          await AsyncStorage.setItem("Melancholik", scoreMelancholik);
+        await AsyncStorage.setItem("Melancholik", scoreMelancholik);
       }
       if(fl !== null){
-          await AsyncStorage.setItem("Flegmatyk", (Number(fl) + scoreFlegmatyk));
+        await AsyncStorage.setItem("Flegmatyk", (Number(fl) + scoreFlegmatyk));
       }else{
-          await AsyncStorage.setItem("Flegmatyk", scoreFlegmatyk);
+        await AsyncStorage.setItem("Flegmatyk", scoreFlegmatyk);
       }
     }catch (err) {
-         alert(err);
+      alert(err);
     }
-      navigation.navigate('Home');
+    navigation.navigate('Home');
   }
 
   const pressHandlerResults = async() => {
@@ -60,27 +60,27 @@ export default function test({ route, navigation }){
       let fl = await AsyncStorage.getItem("Flegmatyk");
 
       if(sa !== null){
-          await AsyncStorage.setItem("Sangwinik", (Number(sa) + scoreSangwinik));
+        await AsyncStorage.setItem("Sangwinik", (Number(sa) + scoreSangwinik));
       }else{
-          await AsyncStorage.setItem("Sangwinik", scoreSangwinik);
+        await AsyncStorage.setItem("Sangwinik", scoreSangwinik);
       }
       if(ch !== null){
-          await AsyncStorage.setItem("Choleryk", (Number(ch) + scoreCholeryk));
+        await AsyncStorage.setItem("Choleryk", (Number(ch) + scoreCholeryk));
       }else{
-          await AsyncStorage.setItem("Choleryk", scoreCholeryk);
+        await AsyncStorage.setItem("Choleryk", scoreCholeryk);
       }
       if(me !== null){
-          await AsyncStorage.setItem("Melancholik", (Number(me) + scoreMelancholik));
+        await AsyncStorage.setItem("Melancholik", (Number(me) + scoreMelancholik));
       }else{
-          await AsyncStorage.setItem("Melancholik", scoreMelancholik);
+        await AsyncStorage.setItem("Melancholik", scoreMelancholik);
       }
       if(fl !== null){
-          await AsyncStorage.setItem("Flegmatyk", (Number(fl) + scoreFlegmatyk));
+        await AsyncStorage.setItem("Flegmatyk", (Number(fl) + scoreFlegmatyk));
       }else{
-          await AsyncStorage.setItem("Flegmatyk", scoreFlegmatyk);
+        await AsyncStorage.setItem("Flegmatyk", scoreFlegmatyk);
       }
     }catch (err) {
-         alert(err);
+      alert(err);
     }
     navigation.navigate('Results', {res: scoreCholeryk, total: test.length, type: TYPE});
   }
@@ -89,14 +89,14 @@ export default function test({ route, navigation }){
   let ID = null;
 
   if( route.params ){
-  TYPE = route.params.type;
-  ID = route.params.id;
+    TYPE = route.params.type;
+    ID = route.params.id;
   }
 
   const Item = ({ item, onPress, style }) => (
-    <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-      <Text style={styles.text}>{item.title}</Text>
-    </TouchableOpacity>
+      <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+        <Text style={styles.text}>{item.title}</Text>
+      </TouchableOpacity>
   );
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -113,21 +113,21 @@ export default function test({ route, navigation }){
   const handleAnswersClick = (isCorrect) => {
 
     if(isCorrect == "choleryk"){
-        setScoreC(scoreCholeryk + 1);
+      setScoreC(scoreCholeryk + 1);
     }
     if(isCorrect == "sangwinik"){
-        setScoreS(scoreSangwinik + 1);
+      setScoreS(scoreSangwinik + 1);
     }
     if(isCorrect == "melancholik"){
-        setScoreM(scoreMelancholik + 1);
+      setScoreM(scoreMelancholik + 1);
     }
     if(isCorrect == "flegmatyk"){
-        setScoreF(scoreFlegmatyk + 1);
+      setScoreF(scoreFlegmatyk + 1);
     }
     const nextQuestion = currentQuestion + 1;
     if(nextQuestion < test.length)
     {
-        setCurrentQuestion(nextQuestion);
+      setCurrentQuestion(nextQuestion);
     }
     else{
       setShowScore(true);
@@ -140,7 +140,7 @@ export default function test({ route, navigation }){
   const [test, setTest] = useState([]);
 
   const getDataUsingGet = () => {
-      setTest(_.shuffle([{
+    setTest(_.shuffle([{
       "question": "Jakie słowo budzi w tobie najbardziej negatywne skojarzenia?",
       "answers": [
         {
@@ -162,389 +162,389 @@ export default function test({ route, navigation }){
       ],
       "duration": 60
     },
-    {
-      "question": "Jakie słowo kojarzy ci się najbardziej pozytywnie?",
-      "answers": [
-        {
-          "content": "Śmiech",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Działanie",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Cisza",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Harmonia",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Nie wyobrażasz sobie życia bez:",
-      "answers": [
-        {
-          "content": "Innych ludzi",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Sukcesu i kariery",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Swojej pasji",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Swoich ulubionych przedmiotów",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Czym są dla ciebie marzenia?",
-      "answers": [
-        {
-          "content": "Pomysłami",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Celami",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Projektami",
-          "isCorrect": "flegmatyk"
-        },
-        {
-          "content": "Ideami",
-          "isCorrect": "melancholik"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Kiedy nie możesz zasnąć:",
-      "answers": [
-        {
-          "content": "Próbujesz się odprężyć i skupić na oddychaniu",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Wiercisz się niecierpliwie w łóżku",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Zwijasz się w kłębek i pogrążasz w marzeniach",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Planujesz aktywności na kolejny dzień",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Każdy ma prawo do:",
-      "answers": [
-        {
-          "content": "Miłości",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Rozwoju",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Szczęścia",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Bycia sobą",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Kiedy dopada cię lęk:",
-      "answers": [
-        {
-          "content": "Szukasz wsparcia",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Mierzysz się z nim",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Uciekasz",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Szukasz przyczyny",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Wybierz słowo:",
-      "answers": [
-        {
-          "content": "Razem",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Natychmiast",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Czasami",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Może",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Jesteś przede wszystkim:",
-      "answers": [
-        {
-          "content": "Towarzyski",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Dynamiczny",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Wrażliwy",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Cierpliwy",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Twoją wadą jest z pewnością:",
-      "answers": [
-        {
-          "content": "Roztargnienie",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Skłonność do agresji",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Zmienność nastrojów",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Powolność",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Kiedy dochodzi do konfliktów:",
-      "answers": [
-        {
-          "content": "Zbywasz wszystko żartem",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Łatwo się zapalasz, ale też szybko gaśniesz",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Zamykasz się w sobie",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Dążysz do rozładowania sytuacji",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Kiedy grasz z innymi w jakąś grę:",
-      "answers": [
-        {
-          "content": "Zagadujesz i dowcipkujesz",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Zdecydowanie dążysz do zwycięstwa",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Starasz się dokładnie zrozumieć zasady",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Obserwujesz uważnie innych graczy",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Kiedy opowiadasz jakąś historię:",
-      "answers": [
-        {
-          "content": "Żywo gestykulujesz, wybuchasz śmiechem, poklepujesz innych",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Akcentujesz puenty, wyrzucasz ramiona w górę",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Splatasz ręce, poprawiasz włosy, obejmujesz się ramionami",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Zastanawiasz się nad każdym zdaniem, ważysz słowa",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Akumulatory ładujesz najskuteczniej:",
-      "answers": [
-        {
-          "content": "Wychodząc do ludzi",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Uprawiając sport",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Zaszywając się w komforcie swojego domu",
-          "isCorrect": "melancholik"
-        },
-        {
-          "content": "Na łonie natury",
-          "isCorrect": "flegmatyk"
-        }
-      ],
-      "duration": 90
-    },
-    {
-      "question": "Twoją główną siłą w rozwiązywaniu problemów jest:",
-      "answers": [
-        {
-          "content": "Odwaga",
-          "isCorrect": "choleryk"
-        },
-        {
-          "content": "Dystans",
-          "isCorrect": "sangwinik"
-        },
-        {
-          "content": "Analiza",
-          "isCorrect": "flegmatyk"
-        },
-        
-        {
-          "content": "Rozwaga",
-          "isCorrect": "melancholik"
-        }
-      ],
-      "duration": 90
-    }]));
+      {
+        "question": "Jakie słowo kojarzy ci się najbardziej pozytywnie?",
+        "answers": [
+          {
+            "content": "Śmiech",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Działanie",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Cisza",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Harmonia",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Nie wyobrażasz sobie życia bez:",
+        "answers": [
+          {
+            "content": "Innych ludzi",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Sukcesu i kariery",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Swojej pasji",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Swoich ulubionych przedmiotów",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Czym są dla ciebie marzenia?",
+        "answers": [
+          {
+            "content": "Pomysłami",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Celami",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Projektami",
+            "isCorrect": "flegmatyk"
+          },
+          {
+            "content": "Ideami",
+            "isCorrect": "melancholik"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Kiedy nie możesz zasnąć:",
+        "answers": [
+          {
+            "content": "Próbujesz się odprężyć i skupić na oddychaniu",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Wiercisz się niecierpliwie w łóżku",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Zwijasz się w kłębek i pogrążasz w marzeniach",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Planujesz aktywności na kolejny dzień",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Każdy ma prawo do:",
+        "answers": [
+          {
+            "content": "Miłości",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Rozwoju",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Szczęścia",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Bycia sobą",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Kiedy dopada cię lęk:",
+        "answers": [
+          {
+            "content": "Szukasz wsparcia",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Mierzysz się z nim",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Uciekasz",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Szukasz przyczyny",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Wybierz słowo:",
+        "answers": [
+          {
+            "content": "Razem",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Natychmiast",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Czasami",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Może",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Jesteś przede wszystkim:",
+        "answers": [
+          {
+            "content": "Towarzyski",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Dynamiczny",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Wrażliwy",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Cierpliwy",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Twoją wadą jest z pewnością:",
+        "answers": [
+          {
+            "content": "Roztargnienie",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Skłonność do agresji",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Zmienność nastrojów",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Powolność",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Kiedy dochodzi do konfliktów:",
+        "answers": [
+          {
+            "content": "Zbywasz wszystko żartem",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Łatwo się zapalasz, ale też szybko gaśniesz",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Zamykasz się w sobie",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Dążysz do rozładowania sytuacji",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Kiedy grasz z innymi w jakąś grę:",
+        "answers": [
+          {
+            "content": "Zagadujesz i dowcipkujesz",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Zdecydowanie dążysz do zwycięstwa",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Starasz się dokładnie zrozumieć zasady",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Obserwujesz uważnie innych graczy",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Kiedy opowiadasz jakąś historię:",
+        "answers": [
+          {
+            "content": "Żywo gestykulujesz, wybuchasz śmiechem, poklepujesz innych",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Akcentujesz puenty, wyrzucasz ramiona w górę",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Splatasz ręce, poprawiasz włosy, obejmujesz się ramionami",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Zastanawiasz się nad każdym zdaniem, ważysz słowa",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Akumulatory ładujesz najskuteczniej:",
+        "answers": [
+          {
+            "content": "Wychodząc do ludzi",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Uprawiając sport",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Zaszywając się w komforcie swojego domu",
+            "isCorrect": "melancholik"
+          },
+          {
+            "content": "Na łonie natury",
+            "isCorrect": "flegmatyk"
+          }
+        ],
+        "duration": 90
+      },
+      {
+        "question": "Twoją główną siłą w rozwiązywaniu problemów jest:",
+        "answers": [
+          {
+            "content": "Odwaga",
+            "isCorrect": "choleryk"
+          },
+          {
+            "content": "Dystans",
+            "isCorrect": "sangwinik"
+          },
+          {
+            "content": "Analiza",
+            "isCorrect": "flegmatyk"
+          },
+
+          {
+            "content": "Rozwaga",
+            "isCorrect": "melancholik"
+          }
+        ],
+        "duration": 90
+      }]));
 
     setShowDownload(true);
   };
 
-const save = async() => {
-  try{
+  const save = async() => {
+    try{
       await AsyncStorage.setItem("Sangwinik", scoreSangwinik);
       await AsyncStorage.setItem("Choleryk", scoreCholeryk);
       await AsyncStorage.setItem("Melancholik", scoreMelancholik);
       await AsyncStorage.setItem("Flegmatyk", scoreFlegmatyk);
-  }catch (err) {
+    }catch (err) {
       alert(err);
+    }
   }
-}
 
-const remove = async() => {
-  try{
+  const remove = async() => {
+    try{
       await AsyncStorage.removeItem("Sangwinik");
       await AsyncStorage.removeItem("Choleryk");
       await AsyncStorage.removeItem("Melancholik");
       await AsyncStorage.removeItem("Flegmatyk");
-  }catch (err) {
+    }catch (err) {
       alert(err);
+    }
   }
-}
 
-if(showDownload)
-{
-return(
-    <View>
-    {showScore ? (
-        <>
+  if(showDownload)
+  {
+    return(
         <View>
-        <Text style={styles.quest}>Choleryk: {Math.round((scoreCholeryk/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
-        scoreMelancholik))*100,3)}%</Text>
-        <Text style={styles.quest}>Flegmatyk: {Math.round((scoreFlegmatyk/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
-        scoreMelancholik))*100,3)}%</Text>
-        <Text style={styles.quest}>Melancholik: {Math.round((scoreMelancholik/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+scoreMelancholik))*100,3)}%</Text>
-        <Text style={styles.quest}>Sangwinik: {Math.round((scoreSangwinik/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
-        scoreMelancholik))*100,3)}%</Text>
-        <TouchableOpacity style={styles.button}
-                            onPress={()=> pressHandlerHome() }>
-              <Text style={styles.container2}>Powrót</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button}
-                            onPress={()=> pressHandlerResults() }>
-              <Text style={styles.container2}>Wyniki</Text>
-          </TouchableOpacity>
-          </View>
-          </>
-    ) : (<> 
-      <View>
-        <Text style={styles.numb}>Pytanie {currentQuestion + 1}/{test.length}</Text>
-        <Text style={styles.quest}>{test[currentQuestion].question}</Text>
+          {showScore ? (
+              <>
+                <View>
+                  <Text style={styles.quest}>Choleryk: {Math.round((scoreCholeryk/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
+                      scoreMelancholik))*100,3)}%</Text>
+                  <Text style={styles.quest}>Flegmatyk: {Math.round((scoreFlegmatyk/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
+                      scoreMelancholik))*100,3)}%</Text>
+                  <Text style={styles.quest}>Melancholik: {Math.round((scoreMelancholik/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+scoreMelancholik))*100,3)}%</Text>
+                  <Text style={styles.quest}>Sangwinik: {Math.round((scoreSangwinik/(scoreSangwinik+scoreCholeryk+scoreFlegmatyk+
+                      scoreMelancholik))*100,3)}%</Text>
+                  <TouchableOpacity style={styles.button}
+                                    onPress={()=> pressHandlerHome() }>
+                    <Text style={styles.container2}>Powrót</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.button}
+                                    onPress={()=> pressHandlerResults() }>
+                    <Text style={styles.container2}>Sprawdź wykres kołowy</Text>
+                  </TouchableOpacity>
+                </View>
+              </>
+          ) : (<>
             <View>
-            {_.shuffle(test[currentQuestion].answers).map((answers) => <TouchableOpacity 
-                      style={styles.answers} onPress={() => handleAnswersClick(answers.isCorrect) }><Text style={styles.text}>       {answers.content}</Text></TouchableOpacity>)}
-            </View>
-            <TouchableOpacity style={styles.button}
-                              onPress={()=> save(), ()=> pressHandlerHome() }>
+              <Text style={styles.numb}>Pytanie {currentQuestion + 1}/{test.length}</Text>
+              <Text style={styles.quest}>{test[currentQuestion].question}</Text>
+              <View>
+                {_.shuffle(test[currentQuestion].answers).map((answers) => <TouchableOpacity
+                    style={styles.answers} onPress={() => handleAnswersClick(answers.isCorrect) }><Text style={styles.text}>       {answers.content}</Text></TouchableOpacity>)}
+              </View>
+              <TouchableOpacity style={styles.button}
+                                onPress={()=> save(), ()=> pressHandlerHome() }>
                 <Text style={styles.container2}>Powrót</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}
-                              onPress={()=> save(), ()=> pressHandlerResults() }>
-                <Text style={styles.container2}>Wyniki</Text>
-            </TouchableOpacity>
-      </View>
-      </>)
-     }</View>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button}
+                                onPress={()=> save(), ()=> pressHandlerResults() }>
+                <Text style={styles.container2}>Sprawdź wykres kołowy</Text>
+              </TouchableOpacity>
+            </View>
+          </>)
+          }</View>
     )
-}else{
-  getDataUsingGet();
-  return null;
-}
+  }else{
+    getDataUsingGet();
+    return null;
+  }
 }
 
 const styles = StyleSheet.create({
@@ -585,7 +585,7 @@ const styles = StyleSheet.create({
   button: {
     borderWidth: 3,
     borderColor: 'black',
-    marginTop: '15px',
+    marginTop: '20px',
     margin: 'auto',
     justifyContent: 'center',
     alignItems: 'center',
